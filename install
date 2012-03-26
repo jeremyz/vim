@@ -11,7 +11,6 @@ curl -so $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HE
 
 PROTO=git
 GIT_URLS="
-    github.com/hrp/EnhancedCommentify.git
 	github.com/scrooloose/nerdtree.git
 	github.com/msanders/snipmate.vim.git
 	github.com/vim-scripts/taglist.vim.git
