@@ -2,7 +2,9 @@
 
 call pathogen#infect()
 
+" color scheme
 map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
+colorscheme void
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
