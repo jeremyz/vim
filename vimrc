@@ -32,6 +32,7 @@ set foldmethod=marker
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
+"set spell
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
