@@ -1,0 +1,7 @@
+#! /bin/sh
+
+DIR=$(readlink -f $(dirname $0))
+curl -so $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+for repo in $DIR/bundle/*; do
+    echo -en " ${repo##*/}\n   " && cd $repo && git pull
+done
