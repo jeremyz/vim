@@ -23,6 +23,7 @@ set ff=unix
 set nofsync
 :filetype on
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
+:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
 "set cursorline
 "set cursorcolumn
