@@ -1,0 +1,7 @@
+#! /bin/sh
+
+DIR=$(readlink -f $(dirname $0))
+pushd $HOME >/dev/null
+ln -sf $DIR .vim
+ln -sf $DIR/vimrc .vimrc
+popd $HOME >/dev/null
