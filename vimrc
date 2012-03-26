@@ -4,7 +4,8 @@ call pathogen#infect()
 
 " color scheme
 map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
-colorscheme void
+set t_Co=256
+colorscheme desert256
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -25,7 +26,7 @@ set nofsync
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
-"set cursorline
+set cursorline
 "set cursorcolumn
 set foldmethod=marker
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
