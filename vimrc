@@ -1,5 +1,7 @@
 " vimrc
 
+call pathogen#infect()
+
 map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 
 " Switch syntax highlighting on, when the terminal has colors
