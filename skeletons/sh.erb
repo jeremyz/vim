@@ -1,0 +1,32 @@
+<%= header 'sh.hdr' %>
+
+SELF=`basename $0`
+VERSION='0.0.1'
+
+function usage ( ) {
+    echo "usage : $SELF  [-]"
+}
+
+function version ( ) {
+    echo " $SELF version $VERSION"
+    echo " Copyright (C) <%= @username %> <%= "#{Time.now.year}-#{Time.now.year+3}" %>"
+    echo " This is free software; There is NO warranty; "
+    echo " not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+}
+
+OPTERR=1
+while [ 1 ]; do
+    getopts "vha:" OPT
+    if test $? -gt 0; then break; fi
+    case $OPT in
+        v)
+        version && exit 0
+        ;;
+        h)
+        usage && exit 0
+        ;;
+        a)
+        echo "arg $OPTARG [$OPTIND]"
+        ;;
+    esac
+done

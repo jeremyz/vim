@@ -1,0 +1,134 @@
+<%= header 'c.hdr' %>
+
+#include "main.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdarg.h>
+#include <string.h>
+#include <getopt.h>
+
+
+static int verbose = 0;
+
+/**
+ * my_error	-	print an error message on stderr then : if(code) exit(code)
+ */
+static void my_error( int code, const char *fmt, ... )
+{
+	va_list ap;
+
+	if ( *fmt ) {
+	    va_start( ap, fmt );
+	    (void)vfprintf( stderr, fmt, ap );
+	    va_end( ap );
+		fmt += strlen( fmt );
+		if ( fmt[-1] != '\n' )
+			(void) fputc( '\n', stderr );
+	}
+	if( code ) exit( code );
+	/* NOTREACHED */
+}
+
+
+/**
+ * usage	-	print usage on stderr
+ */
+static void usage( const char *program_name, const char* optstring )
+{
+	fprintf( stderr, "usage : %s [-%s]\n", program_name, optstring );
+	fprintf( stderr, "\t --verbose (-v)        : verbose mode.\n"
+			"\t --version (-V)        : print version number.\n"
+			"\t --help    (-h)        : print this screen.\n"
+			"\t --arg     (-a) <arg>  : a numeric argument.\n"
+			"\n" );
+}
+
+
+/**
+ * MAIN
+ */
+int main( int argc, char **argv )
+{
+	int optch;	/* returned by getopts_long */
+	int index;	/* index of longopts[] */
+
+	int a;
+
+	/**
+	 * name - has_arg (bool) - flag (int *) - val (int)
+	 *
+	 * 	if(!longopts[x].flag)
+	 * 		return longopts[x].val;
+	 * 	else
+	 * 		*(longopts[x].flag) = longopts[x].val;
+	 * 	return 0;
+	 *
+	 */
+	static struct option longopts[] = {
+		{ "help", 0, 0, 'h' },
+		{ "version", 0, 0, 'V' },
+		{ "verbose", 0, &verbose, 1 },
+		{ "arg", 1, 0, 'a' },
+		{ 0, 0, 0, 0, }
+	};
+
+	static char *optstring = "hvVa:";
+
+	static const char *program_name = PACKAGE_NAME;
+	/*
+	const char *program_name = file_name( argv[0] );
+	*/
+
+	opterr=0;	/* no default advise for bad options */
+	optind=0;
+
+	a=0;
+
+#ifdef DEBUG
+	printf( "DEBUG mode is set.\n" );
+#endif
+
+	/* process options */
+	while( ( optch = getopt_long( argc, argv, optstring, longopts, &index ) ) !=-1 ) {
+		switch( optch ){
+			case 'h':
+				usage( program_name, optstring );
+				return EXIT_FAILURE;
+			case 'V':
+				fprintf( stdout, " %s version : %s\n", program_name, VERSION );
+				return EXIT_FAILURE;
+			case 'v':
+				verbose = 1;
+				break;
+			case 'a':
+				a = atoi( optarg );
+				break;
+			case 0:
+				/* longopt used flag */
+				break;
+			default:
+				my_error(EXIT_FAILURE,"invalid option %s\n\ttype : %s --help\n",argv[optind-1],program_name);
+		}
+	}
+
+	printf("a : %d\n",a);
+
+	/* process other arguments */
+	while(optind<argc){
+		printf("argv[%d]='%s'\n",optind,argv[optind]);
+		optind++;
+	}
+
+	if(verbose)printf("verbose mode is set.\n");
+
+	/**
+	 * insert some fucking code here.
+	 */
+
+	/* end reached */
+	return EXIT_SUCCESS;
+}
+
+

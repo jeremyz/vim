@@ -1,0 +1,43 @@
+#@SysInclude { eq }
+#@SysInclude { tab }
+#@SysInclude { fig }
+@SysInclude { report }
+
+@Report
+    @Title { }
+    @Author { Jérémy Zurcher }
+    @Institution { }
+    @DateLine { <%= "#{Time.now.strftime '%d, %m, %Y'}" %> }
+    @InitialLanguage { French }
+    @OptimizePages { Yes }
+    @AbstractTitle { }
+    @Abstract { }
+//
+@Section
+    @Title { Section }
+    @RunningTitle { Section }
+@Begin
+@PP
+Hello World 1
+@PP
+Hello World 2 Hello World 2
+@BeginSubSections
+@SubSection
+    @Title { SubSection }
+    @RunningTitle { Subsection }
+@Begin
+@PP
+Hello World 3 Hello World 3 Hello World 3 Hello World 3
+@BeginSubSubSections
+@SubSubSection
+    @Title { SubSubSection }
+    @RunningTitle { SubSubSection }
+@Begin
+@PP
+Hello World 4 Hello World 4 Hello World 4 Hello World 4 Hello World 4 Hello World 4 Hello World 4 Hello World 4
+@End @SubSubSection
+@EndSubSubSections
+@End @SubSection
+@EndSubSections
+@End @Section
+

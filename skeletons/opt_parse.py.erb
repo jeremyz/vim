@@ -1,0 +1,60 @@
+<%= header 'python.hdr' %>
+
+""" Module Description """
+
+#----------------------------------------------------------------------------
+
+__version__ = '0.1.0'
+
+#----------------------------------------------------------------------------
+
+#import
+
+#----------------------------------------------------------------------------
+
+__all__ = [
+        '<%= @filename_base %>'
+        ]
+
+#----------------------------------------------------------------------------
+class <%= @filename_base %>:
+
+    def __init__( self, parser, options ):
+    self.parser = parser
+    self.options = options
+
+#----------------------------------------------------------------------------
+def my_callback( option, opt, value, parser ):
+	print "option : %s" % option
+	print "opt    : %s" % opt
+	print "value  : %s" % value
+        print "parser : %s" % parser
+
+#----------------------------------------------------------------------------
+def main( ):
+    from optparse import OptionParser
+    parser = OptionParser( usage="usage : %prog [-h] [-v]", version= "%prog version " + __version__ )
+#			action		store store_true store_false store_const append count callback help
+#			type		string int long choice float complex
+#			dest		action="store*"
+#			default
+#			nargs		int
+#			const		action="store_const"
+#			choices
+#			callback
+#			callback_args
+#			callback_kwargs
+#			help		help tring
+#			metavar
+    parser.add_option("-v", "--verbose", action="store_true", dest="verbose", default=False, help="produces noisy outputs." )
+    parser.add_option("-c", "--callback", action="callback", callback=my_callback, help="print callback args" )
+    parser.add_option("-s", "--string", action="store", type="string", dest="string", help="memorize a string" )
+    ( options, args) = parser.parse_args( )
+    print 'verbose : %s' % options.verbose
+    return 0
+
+#----------------------------------------------------------------------------
+
+if __name__ == '__main__':
+    import sys
+    sys.exit( main( ) )

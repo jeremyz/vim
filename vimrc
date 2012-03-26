@@ -22,6 +22,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set ff=unix
 set nofsync
 :filetype on
+:au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 
 "set cursorline
 "set cursorcolumn

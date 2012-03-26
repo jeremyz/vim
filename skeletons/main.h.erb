@@ -1,0 +1,26 @@
+<%= header 'c.hdr' %>
+
+
+#ifndef _MAIN_
+#define _MAIN_ 1
+
+# ifdef __cplusplus
+extern "C" {
+# endif /* __cplusplus */
+
+#define VERSION "version"
+#define PACKAGE_NAME "package_name"
+
+#ifdef HAVE_CONFIG_H
+	#include "config.h"
+/*
+#else
+	#error "no config.h"
+*/
+#endif
+
+# ifdef __cplusplus
+}
+# endif /* __cplusplus */
+
+# endif /* _MAIN_ */

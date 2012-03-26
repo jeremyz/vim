@@ -1,0 +1,12 @@
+<%= header 'ruby.hdr' %>
+#
+module <%= @class_name %>
+    class <%= @class_name %>
+    end
+end
+#
+if __FILE__ == $0
+    t = <%= @class_name %>::<%= @class_name %>.new
+end
+#
+# EOF

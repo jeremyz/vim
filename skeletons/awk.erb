@@ -1,0 +1,9 @@
+<%= header 'awk.hdr' %>
+
+BEGIN { }
+
+{
+print "line "NR" has "NF" fields.";
+}
+
+END { print "line number : "NR }

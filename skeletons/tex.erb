@@ -1,0 +1,74 @@
+%
+% <%= @username %> <<%= @email %>>
+% <%= @filename  %>
+% <%= @now %>
+%
+\documentclass[a4paper,twoside,12pt]{article}
+%
+\usepackage[french]{babel}	    % prise en charge du francais
+\usepackage[latin1]{inputenc}	% codage des caracteres
+\usepackage[T1]{fontenc}	    % manipulation des polices
+\usepackage{moreverb}		    % listinginput[incr]{first}{file}
+\usepackage{fancybox}		    % VerbatimInput{file}
+\usepackage{fancyhdr}		    % en-tete pied de page
+\usepackage{hyperref}		    % lien hypertext pdf / html doit etre place en dernier
+\usepackage{layout}	            % afficher le layout
+% layout vertical
+\setlength{\topmargin}{0cm}
+\setlength{\headheight}{2cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\topskip}{1.5cm}
+\setlength{\textheight}{21cm}
+\setlength{\footskip}{2cm}
+%layout horizontal
+\setlength{\evensidemargin}{49pt}
+\setlength{\oddsidemargin}{6pt}
+\setlength{\marginparwidth}{3cm}
+\setlength{\textwidth}{14cm}
+%
+\pagestyle{fancy}
+%
+%
+\begin{document}
+    %\layout
+    \tableofcontents
+    \newpage
+    %
+    %
+    \section{Section}
+        %
+        Text ...
+        %
+        \paragraph{Paragraph} P
+        %
+        \paragraph{} LABEL\label{L}
+        %
+        \subsection{Subsection}
+            %
+                %
+	            \subsubsection{SubSubSection}
+	                %
+	            %
+            %
+        %
+    %
+    \newpage
+    \section{Section 2}
+        %
+        Label : \ref{L} page : \pageref{L}.\\
+        \url{http://cr.yp.to}\\
+        biblio : \cite{keyword}\\
+        \footnote{une note de bas de page}
+    %
+    \appendix
+        \section{Code Source}
+        \subsection{Code\_A}
+            %
+            %\insertFile{../Code_A}{scriptsize}
+            %
+            %\includegraphics*[height=8cm]{filename}
+        %\section{Bibliographie}
+        %
+        \bibliographystyle{plain}
+        \bibliography{biblio}
+\end{document}

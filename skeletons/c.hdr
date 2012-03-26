@@ -1,0 +1,9 @@
+/*
+ * File     : <%= @filename %>
+ * Author   : <%= @username %>  <<%= @email %>>
+ * Date     : <%= @now %>
+ * License  :
+ *
+<%= license ' *  '%>
+ *
+ */

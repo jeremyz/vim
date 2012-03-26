@@ -1,0 +1,20 @@
+<%= header 'c.hdr' %>
+
+<% define=File.basename( @filename ).upcase!.sub!('.', '_' ) %>
+
+#ifndef _<%= define %>_
+#define _<%= define %>_
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+/*
+ *  Feed me
+ */
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* _<%= define %>_ */

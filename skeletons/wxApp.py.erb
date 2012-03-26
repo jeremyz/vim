@@ -1,0 +1,126 @@
+<%= header 'python.hdr' %>
+
+""" Module Descritpion """
+
+import wx
+from zurcher.wx.MenuFactory import *
+from wx.html import HtmlWindow
+import wx.lib.wxpTag                # wxButton in AboutDialog
+from wx.lib.newevent import NewEvent as wxNewEvent
+
+
+#----------------------------------------------------------------------------
+
+__app_version__ = '0.1.0'
+__app_name__ = 'MyApp'
+__app__ = '%s %s' % ( __app_name__, __app_version__  )
+
+#----------------------------------------------------------------------------
+
+UpdateGuiEvent, EVT_UPDATE_GUI = wxNewEvent( )
+
+#----------------------------------------------------------------------------
+
+class AboutDialog( wx.Dialog ):
+    """ Used to show info about ZIP file """
+    text = '''<html>
+    <body bgcolor="#dddddd">
+    <center><table bgcolor="#eeeeee" width="100%%" cellspacing="0" cellpadding="0" border="1">
+    <tr><td align="center">Running on Python %s<br>using wxPython %s</td></tr></table>
+    <p><b>%s</b> is a small test application.</p>
+    <p><b>%s</b> is brought to you by <b>J&eacute;r&eacute;my Zurcher</b></p>
+    <p><font size="-1">Please see <i>license.txt</i> for licensing information about <b>wxPython.</b></font></p>
+    <p><wxp module="wx" class="Button">
+    <param name="label" value="Okay">
+    <param name="id"    value="%d">
+    </wxp></p>
+    </center>
+    </body>
+    </html>'''
+
+    def __init__( self, parent, title, ID=-1 ):
+        wx.Dialog.__init__( self, parent, ID, title)
+        html = HtmlWindow( self, -1, size=(410, -1) )
+        import sys
+        py_version = sys.version.split( )[0]
+        html.SetPage( self.text % ( py_version, wx.__version__, __app_name__, __app_name__, wx.ID_OK ) )
+        btn = html.FindWindowById( wx.ID_OK )
+        btn.SetDefault( )
+        ir = html.GetInternalRepresentation( )
+        html.SetSize( ( ir.GetWidth()+25, ir.GetHeight()+25 ) )
+        self.SetClientSize( html.GetSize() )
+        self.CenterOnScreen( )
+
+#----------------------------------------------------------------------------
+class MyPanel( wx.Panel ):
+    def __init__( self, parent ):
+        wx.Panel.__init__( self, parent, -1 )
+        self.SetBackgroundColour( 'GREY' )
+        gbs = wx.GridBagSizer( 5, 5 )
+        gbs.Add( (0,0), (10,10) )
+        gbs.Add( wx.StaticText( self, -1, 'wx.StaticText' ), (1,1) )
+        self.SetSizer( gbs )
+
+#----------------------------------------------------------------------------
+class MyFrame( wx.Frame ):
+    def __init__( self, title ):
+        wx.Frame.__init__( self, None, -1, title, size=(200, 200) )
+
+        menuIDs = {
+            'open'          : [ wx.NewId(), True  ],
+            }
+        self.menuIDs = menuIDs
+
+        mb = zMenuBar( self, None, wx.MB_DOCKABLE )
+        fileMenu=[
+                zItem( '&Open\tCtrl-O', 'Open something', fct=self.OnOpen, id=menuIDs['open'][0] ),
+                zItem( kind=wx.ITEM_SEPARATOR ),
+                zItem( 'E&xit\tCtrl-X', 'Quit this application', fct=self.OnExit )
+                ]
+        helpMenu=[
+                zItem( '&About\tF1', 'About dialog', fct=self.OnHelp )
+                ]
+        menus=[
+                zMenu( '&File', '', fileMenu, wx.MENU_TEAROFF),
+                zMenu( '&Help','', helpMenu)
+                ]
+        mb.realize( menus )
+
+        self.SetStatusBar( self.CreateStatusBar( ) )
+
+        self.Bind( wx.EVT_CLOSE, self.OnExit )
+        panel = MyPanel( self )
+        #self.Fit( )
+
+    def OnExit( self, event ):
+        self.Destroy( )
+
+    def OnHelp( self, event ):
+        dialog = AboutDialog( self, 'About %s ' % ( __app__ ) )
+        dialog.ShowModal( )
+        dialog.Destroy( )
+
+    def OnOpen( self, event ):
+        print 'OnOpen will be disabled'
+        self.menuIDs['open'][1] = False
+        self.OnUpdateGui( event )
+
+    def OnUpdateGui( self, evt ):
+#        for key in self.menuIDs.keys( ):
+#            self.menuIDs[key][1] = False
+        mb = self.GetMenuBar( )
+        map( lambda x:mb.Enable( x[0], x[1] ), self.menuIDs.values() )
+
+#----------------------------------------------------------------------------
+class MyApp( wx.App ):
+    def OnInit( self ):
+        frame = MyFrame( __app__ )
+        frame.Center( )
+        frame.Show( True )
+        return True
+
+#----------------------------------------------------------------------------
+if __name__ == '__main__':
+    app = MyApp(0)
+    app.MainLoop()
+

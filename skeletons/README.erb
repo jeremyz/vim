@@ -1,0 +1,62 @@
+
+<%= `figlet -c README` %>
+<%# figlet: http://www.figlet.org %>
+
+This is <%= @project %>, version %VERSION%
+-----------------------------
+
+<%=@project %> is Copyright (C) <%=@year %>-<%=@year.to_i+5%>, <%= @username %>. <<%= @email %>>
+
+LICENSE INFORMATION
+-------------------
+
+<%= license %>
+
+PREREQUISITES
+-------------
+
+You'll need a C compiler, a linker and a make program of course.
+
+INSTRUCTIONS
+------------
+
+For now, unpack your <%= @project %> tarball, (if you're reading this, you've
+probably already done that) and type
+
+    ./configure
+
+If you are self confident you may try the following to have more power on compilation process
+
+    ./configure --help
+
+
+Next, run make:
+
+You can test <%= @project %> by running
+
+    make test
+
+On some systems you can install <%= @project %>:
+
+    make install
+
+NOTES
+-----
+
+CHANGES
+-------
+
+For documentation on the user-visible changes between this version and
+previous versions, please see CHANGES.
+
+MAILING LISTS
+-------------
+
+Subscribe to the mailing list for <%= @project %> by sending mail to
+%MAILING_LIST%.
+
+WEB SITES
+---------
+
+The home page for <%= @project %> is %HOME_PAGE%
+

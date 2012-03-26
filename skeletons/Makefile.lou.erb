@@ -1,0 +1,39 @@
+
+# USER VAR
+MAIN=file_name
+LOUT_FILES=${MAIN}.lou
+#
+
+LOUT_MAIN=${MAIN}.lou
+PSNAME=${MAIN}.ps
+PDFNAME=${MAIN}.pdf
+
+AWK=gawk
+LOUT=lout
+PS2PDF=ps2pdf
+
+.SUFFIXES: .lout .lou
+
+all: $(PSNAME) $(PDFNAME)
+
+utf8_lat1:
+	@( \
+		echo '#! /bin/sh'; \
+		echo 'file $$1 | grep UTF-8 >/dev/null'; \
+		echo 'if [ $$? -eq 0 ]; then'; \
+		echo '  iconv --from utf8 --to iso88591 $$1 > $$(basename $$1 .lou).lat1'; \
+		echo 'else'; \
+		echo '  cp $$1 $$(basename $$1 .lou).lat1'; \
+		echo 'fi'; \
+	) > utf8_lat1
+	@chmod 755 utf8_lat1
+
+$(PSNAME): utf8_lat1 $(LOUT_FILES)
+	$(LOUT) -r3 -o $(PSNAME) $(LOUT_MAIN)
+
+$(PDFNAME): $(PSNAME) 
+	$(PS2PDF) $(PSNAME) 
+
+clean:
+	@rm *.ps *.ld *.li *.lix *.lat1 *~ utf8_lout utf8_lat1 2>/dev/null
+

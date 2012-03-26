@@ -1,0 +1,16 @@
+
+
+CC     = gcc
+STD    = _GNU_SOURCE
+OBJS   = A.o test.o B.o
+CFLAGS = -D__TZURTCH__
+BIN = binary
+
+.c.o:
+	$(CC) -c -Wall -I. $(CFLAGS) -D$(STD) $<
+
+all: $(OBJS)
+	$(CC) $(OBJS) -o $(BIN)
+
+clean:
+	rm -f *~ *.o core $(BIN)

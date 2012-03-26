@@ -1,0 +1,28 @@
+<%= header 'python.hdr' %>
+
+""" Distutils script """
+
+#----------------------------------------------------------------------------
+
+from distutils.core import setup
+
+#----------------------------------------------------------------------------
+
+
+setup (
+    name='DistName',
+    version='1.0',
+    description='package description',
+    long_description='package long description',
+    author='<%= @username %>',
+    author_email='<%= @email %>',
+    maintainer='<%= @username %>',
+    maintainer_email='<%= @email %>',
+    url='<%= @webiste %>',
+    download_url='<%= @website %>',
+    package_dir = { '':'lib' },
+    packages = [ 'pack1', 'pack2', 'pack2.sub' ],
+    classifiers= [
+        'Programming Language :: Python'
+        ]
+    )
