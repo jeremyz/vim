@@ -46,7 +46,9 @@ set showcmd		    " display incomplete commands
 set incsearch		" do incremental searching
 set number          " show line number
 set showmode        " show current mode
-"map <M-b> <c-b>
+
+" remap vim-comentary : nmap \\  <Plug>Commentary
+map <C-c> \\\
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
