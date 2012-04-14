@@ -1,11 +1,14 @@
 " vimrc
 
 call pathogen#infect()
-
 " color scheme
 map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
-set t_Co=256
-colorscheme desert256
+if !empty($DISPLAY)
+  set t_Co=256
+  colorscheme desert256
+else
+  colorscheme adobe
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -47,6 +50,7 @@ set showcmd		    " display incomplete commands
 set incsearch		" do incremental searching
 set number          " show line number
 set showmode        " show current mode
+
 
 " remap vim-comentary : nmap \\  <Plug>Commentary
 map <C-c> \\\
