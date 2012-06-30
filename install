@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 DIR=$(readlink -f $(dirname $0))
 pushd $HOME >/dev/null
@@ -7,14 +7,14 @@ ln -sf $DIR/vimrc .vimrc
 popd $HOME >/dev/null
 
 [ ! -d $DIR/autoload ] && mkdir $DIR/autoload
-curl -so $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+echo "update pathogen" && curl -# -o $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 
 PROTO=git
+# github.com/Townk/vim-autoclose.git
 GIT_URLS="
 	github.com/scrooloose/nerdtree.git
 	github.com/msanders/snipmate.vim.git
 	github.com/vim-scripts/taglist.vim.git
-	github.com/Townk/vim-autoclose.git
 	github.com/tpope/vim-commentary.git
 	github.com/mirell/vim-matchit.git
 	github.com/tpope/vim-repeat.git
@@ -23,5 +23,11 @@ GIT_URLS="
 [ ! -d $DIR/bundle ] && mkdir $DIR/bundle
 cd $DIR/bundle
 for url in $GIT_URLS; do
-    git clone "$PROTO://$url"
+    gitdir=${url##*/}
+    dir=${gitdir%.git}
+    if [ -d  "$dir/.git" ]; then
+        cd $dir && echo "update $dir" && git pull; cd ..
+    else
+        git clone "$PROTO://$url"
+    fi
 done
