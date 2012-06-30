@@ -29,8 +29,8 @@ set nofsync
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
-set cursorline
-"set cursorcolumn
+" set cursorline
+" set cursorcolumn
 set foldmethod=marker
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
