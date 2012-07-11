@@ -1,0 +1,5 @@
+" vimrc
+
+source ~/.vimrc
+source ~/.vim/scripts/bepo-layout.vim
+

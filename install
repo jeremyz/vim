@@ -4,6 +4,7 @@ DIR=$(readlink -f $(dirname $0))
 pushd $HOME >/dev/null
 ln -sf $DIR .vim
 ln -sf $DIR/vimrc .vimrc
+ln -sf $DIR/vimrc-bepo .vimrc-bepo
 popd $HOME >/dev/null
 
 [ ! -d $DIR/autoload ] && mkdir $DIR/autoload
