@@ -125,6 +125,7 @@ function! Preserve(command)
     endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
+autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
 source ~/.vim/scripts/bepo-layout.vim
 
