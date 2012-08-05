@@ -1,6 +1,7 @@
 " vimrc
 
 call pathogen#infect()
+
 " color scheme
 map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 if !empty($DISPLAY)
@@ -107,3 +108,6 @@ function! Preserve(command)
     endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
+
+source ~/.vim/scripts/bepo-layout.vim
+

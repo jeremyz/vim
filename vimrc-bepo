@@ -1,4 +1,6 @@
-" vimrc
+" vimrc-bepo
+
+call pathogen#infect()
 
 source ~/.vimrc
 source ~/.vim/scripts/bepo-layout.vim
