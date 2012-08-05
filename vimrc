@@ -30,6 +30,7 @@ set nofsync
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
+set list
 " set cursorline
 " set cursorcolumn
 set foldmethod=marker
@@ -52,6 +53,11 @@ set incsearch		" do incremental searching
 set number          " show line number
 set showmode        " show current mode
 
+" toggle view invisible with \t
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 " remap vim-comentary : nmap \\  <Plug>Commentary
 map <C-c> \\\
