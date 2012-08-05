@@ -2,9 +2,8 @@
 
 DIR=$(readlink -f $(dirname $0))
 pushd $HOME >/dev/null
-[ -e .vim ] & rm .vim
+rm .vim*
 ln -sf $DIR .vim
-[ -e .vimrc ] & rm .vimrc
 ln -sf $DIR/vimrc .vimrc
 popd $HOME >/dev/null
 
