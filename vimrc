@@ -39,17 +39,17 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 
 "set spell
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackupss    " do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file
+  set backup        " keep a backup file
 endif
 set autoindent      " use autoindent"
 set nocompatible    " do not try to act like vi
 set laststatus=2    " alway add status line
-set history=50		" keep 50 lines of command line history
-set ruler		    " show the cursor position all the time
-set showcmd		    " display incomplete commands
-set incsearch		" do incremental searching
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
 set number          " show line number
 set showmode        " show current mode
 
