@@ -3,16 +3,21 @@
 call pathogen#infect()
 
 " color scheme
-map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
-if !empty($DISPLAY)
-  set t_Co=256
-  colorscheme desert256
-else
-  colorscheme adobe
-endif
+" map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
+" if !empty($DISPLAY)
+"   set t_Co=256
+"   colorscheme desert256
+" else
+"   colorscheme adobe
+" endif
 
-" Switch syntax highlighting on, when the terminal has colors
+syntax enable
+set background=dark
+colorscheme solarized
+call togglebg#map("<F5>")
+
 " Also switch on highlighting the last used search pattern.
+" Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
@@ -30,7 +35,7 @@ set nofsync
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
-set list
+" set list
 " set cursorline
 " set cursorcolumn
 set foldmethod=marker
