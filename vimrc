@@ -3,25 +3,27 @@
 call pathogen#infect()
 
 " color scheme
-" map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
+" set t_Co=256
 " if !empty($DISPLAY)
-"   set t_Co=256
-"   colorscheme desert256
-" else
-"   colorscheme adobe
-" endif
-
-syntax enable
-set background=dark
-colorscheme solarized
-call togglebg#map("<F5>")
-
-" Also switch on highlighting the last used search pattern.
-" Switch syntax highlighting on, when the terminal has colors
-if &t_Co > 2 || has("gui_running")
+if &t_Co >= 256 || has("gui_running")
   syntax on
   set hlsearch
+  set background=dark
+  let g:solarized_termtrans=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_visibility="high"
+  colorscheme solarized
+  " colorscheme herald
+  " colorscheme desert256
+  " colorscheme hemisu
+  " colorscheme neverland2
+else
+  colorscheme adobe
 endif
+
+call togglebg#map("<F5>")
+" map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 
 " colorize extra whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
