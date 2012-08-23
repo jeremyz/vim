@@ -4,11 +4,11 @@ call pathogen#infect()
 
 " color scheme
 " set t_Co=256
-" if !empty($DISPLAY)
-if &t_Co >= 256 || has("gui_running")
-  syntax on
-  set hlsearch
-  set background=dark
+" if &t_Co >= 256 || has("gui_running")
+syntax on
+set hlsearch
+set background=dark
+if !empty($DISPLAY)
   let g:solarized_termtrans=1
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
@@ -18,6 +18,12 @@ if &t_Co >= 256 || has("gui_running")
   " colorscheme desert256
   " colorscheme hemisu
   " colorscheme neverland2
+  " -> Visual Mode
+  hi Visual         ctermbg=0    ctermfg=215   cterm=none
+  hi VisualNOS      ctermbg=0    ctermfg=241   cterm=none
+  " -> Search
+  hi search         ctermbg=241  ctermfg=227   cterm=none
+  hi incsearch      ctermbg=241  ctermfg=227   cterm=none
 else
   colorscheme adobe
 endif
