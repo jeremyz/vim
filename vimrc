@@ -24,6 +24,8 @@ if !empty($DISPLAY)
   " -> Search
   hi search         ctermbg=241  ctermfg=227   cterm=none
   hi incsearch      ctermbg=241  ctermfg=227   cterm=none
+  " Use the same symbols as TextMate for tabstops and EOLs
+  set listchars=tab:▸\ ,eol:¬
 else
   colorscheme adobe
 endif
@@ -71,9 +73,6 @@ set showmode        " show current mode
 
 " toggle view invisible with \t
 nmap <leader>l :set list!<CR>
-
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 
 " remap vim-comentary : nmap \\  <Plug>Commentary
 map <C-c> \\\
@@ -141,7 +140,7 @@ function! Preserve(command)
     endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
-autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
+" autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
 source ~/.vim/scripts/bepo-layout.vim
 
