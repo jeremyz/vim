@@ -52,6 +52,9 @@ set nofsync
 au BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
 highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
 
+" indent for e17  Ref:http://trac.enlightenment.org/e/wiki/ECoding
+nnoremap <silent> <F6> :set ts=8 sw=3 sts=3 expandtab cino=>5n-3f0^-2{2(0W1st0<CR>
+
 " set list
 " set cursorline
 " set cursorcolumn
