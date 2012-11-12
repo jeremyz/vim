@@ -40,7 +40,6 @@ call togglebg#map("<F5>")
 " colorize extra whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " files
 set ff=unix
@@ -48,6 +47,10 @@ set nofsync
 :filetype on
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+" Set color over 80 chars
+au BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
+highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
 
 " set list
 " set cursorline
