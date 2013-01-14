@@ -16,6 +16,8 @@ else
   colorscheme adobe
 endif
 
+" nap alt-space to Esc
+:imap <A-Space> <Esc>
 :imap <M-Space> <ESC>
 
 call togglebg#map("<F5>")
@@ -25,19 +27,29 @@ call togglebg#map("<F5>")
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Set color over 80 chars
+au BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
+highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
+
+" indent for e17  Ref:http://trac.enlightenment.org/e/wiki/ECoding
+" nnoremap <silent> <F6> :set ts=8 sw=3 sts=3 expandtab cino=>5n-3f0^-2{2(0W1st0<CR>
+
+" local vimrc
+let g:localvimrc_ask=0
+"let g:localvimrc_sandbox=0
+
+" tags
+nnoremap <silent> <F6> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer
+let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+
 " files
 set ff=unix
 set nofsync
 :filetype on
 :au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
-
-" Set color over 80 chars
-au BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
-highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
-
-" indent for e17  Ref:http://trac.enlightenment.org/e/wiki/ECoding
-nnoremap <silent> <F6> :set ts=8 sw=3 sts=3 expandtab cino=>5n-3f0^-2{2(0W1st0<CR>
 
 " set list
 " set cursorline
@@ -61,9 +73,6 @@ set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 set number          " show line number
 set showmode        " show current mode
-
-" nap alt-space to Esc
-:imap <A-Space> <Esc>
 
 " toggle view invisible with \t
 nmap <leader>l :set list!<CR>
@@ -116,8 +125,6 @@ if has("autocmd")
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
-
-  "set tags+=~/share/ctags/efl.tags
 
 endif " has("autocmd")
 
