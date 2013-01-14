@@ -26,6 +26,7 @@ GIT_URLS="
     github.com/tpope/vim-markdown.git
     github.com/majutsushi/tagbar
     github.com/altercation/vim-colors-solarized.git
+    github.com/embear/vim-localvimrc.git
 "
 [ ! -d $DIR/bundle ] && mkdir $DIR/bundle
 cd $DIR/bundle
