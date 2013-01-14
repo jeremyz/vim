@@ -16,6 +16,8 @@ else
   colorscheme adobe
 endif
 
+:imap <M-Space> <ESC>
+
 call togglebg#map("<F5>")
 " map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 
@@ -61,7 +63,7 @@ set number          " show line number
 set showmode        " show current mode
 
 " nap alt-space to Esc
-:imap <A-c> <Esc>
+:imap <A-Space> <Esc>
 
 " toggle view invisible with \t
 nmap <leader>l :set list!<CR>
