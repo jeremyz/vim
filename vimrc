@@ -10,25 +10,7 @@ set hlsearch
 set background=dark
 if !empty($DISPLAY)
   let g:solarized_termtrans=1
-  " let g:solarized_termcolors=16
-  " let g:solarized_termcolors=256
-  " let g:solarized_contrast="high"
-  " let g:solarized_visibility="high"
   colorscheme solarized
-  " colorscheme herald
-  " colorscheme desert256
-  " colorscheme hemisu
-  " colorscheme neverland2
-  " -> Status Line
-  " hi StatusLine     guibg=#000000 guifg=#696567 gui=none
-  " hi StatusLineNC   guibg=#25365a guifg=#696567 gui=none
-  " -> Visual Mode
-  " hi Visual         ctermbg=0    ctermfg=215   cterm=none
-  " hi VisualNOS      ctermbg=0    ctermfg=241   cterm=none
-  " -> Search
-  " hi search         ctermbg=241  ctermfg=227   cterm=none
-  " hi incsearch      ctermbg=241  ctermfg=227   cterm=none
-  " Use the same symbols as TextMate for tabstops and EOLs
   set listchars=tab:▸\ ,eol:¬
 else
   colorscheme adobe
