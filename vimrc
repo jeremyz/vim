@@ -79,7 +79,7 @@ set number          " show line number
 set showmode        " show current mode
 
 " nap alt-space to Esc
-:imap <A-Space> <Esc>
+:imap <A-c> <Esc>
 
 " toggle view invisible with \t
 nmap <leader>l :set list!<CR>
