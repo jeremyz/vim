@@ -12,6 +12,7 @@ echo "update pathogen" && curl -# -o $DIR/autoload/pathogen.vim https://raw.gith
 
 PROTO=git
 # github.com/Townk/vim-autoclose.git
+# github.com/vim-scripts/Vim-JDE.git
 GIT_URLS="
     github.com/scrooloose/nerdtree.git
     github.com/msanders/snipmate.vim.git
@@ -27,7 +28,9 @@ GIT_URLS="
     github.com/majutsushi/tagbar
     github.com/altercation/vim-colors-solarized.git
     github.com/embear/vim-localvimrc.git
+    github.com/vim-scripts/javacomplete.git
 "
+
 [ ! -d $DIR/bundle ] && mkdir $DIR/bundle
 cd $DIR/bundle
 for url in $GIT_URLS; do
