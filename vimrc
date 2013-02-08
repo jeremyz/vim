@@ -16,29 +16,18 @@ else
   colorscheme adobe
 endif
 
-" nap alt-space to Esc
-:imap <A-Space> <Esc>
-:imap <M-Space> <ESC>
-
 call togglebg#map("<F5>")
 " map <F12> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 
 " colorize extra whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
-" Set color over 80 chars
-au BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
-highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
-
-" indent for e17  Ref:http://trac.enlightenment.org/e/wiki/ECoding
-" nnoremap <silent> <F6> :set ts=8 sw=3 sts=3 expandtab cino=>5n-3f0^-2{2(0W1st0<CR>
+match ExtraWhitespace /\t\|\s\+$/
 
 " local vimrc
 let g:localvimrc_ask=0
 "let g:localvimrc_sandbox=0
 
-" tags
+" ctags
 nnoremap <silent> <F6> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
@@ -97,6 +86,10 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
+  " Set color over 80 chars
+  autocmd BufRead *.c,*.cpp,*.h match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
+  highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
