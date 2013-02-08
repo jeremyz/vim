@@ -37,8 +37,6 @@ let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
 set ff=unix
 set nofsync
 :filetype on
-:au BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
-:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
 " set list
 " set cursorline
@@ -99,14 +97,17 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
 
-  autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType ruby set omnifunc=rubycomplete#Complete
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-  autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-  autocmd FileType c set omnifunc=ccomplete#Completeset
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+  autocmd FileType c setlocal omnifunc=ccomplete#Completeset
+  autocmd Filetype java setlocal complete=.,w,b,u,t,i
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+  autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
@@ -115,9 +116,11 @@ if has("autocmd")
  " Customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 
 endif " has("autocmd")
 
