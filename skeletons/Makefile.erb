@@ -6,11 +6,13 @@ OBJS   = A.o test.o B.o
 CFLAGS = -D__TZURTCH__
 BIN = binary
 
+.PHONY: clean
+
 .c.o:
-	$(CC) -c -Wall -I. $(CFLAGS) -D$(STD) $<
+	$(CC) -c -Wall -I. $(CFLAGS) -D$(STD) -o $@ $<
 
 all: $(OBJS)
-	$(CC) $(OBJS) -o $(BIN)
+	$(CC) $(OBJS) -o $@
 
 clean:
 	rm -f *~ *.o core $(BIN)
