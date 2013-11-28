@@ -29,6 +29,7 @@ GIT_URLS="
     github.com/altercation/vim-colors-solarized.git
     github.com/embear/vim-localvimrc.git
     github.com/vim-scripts/javacomplete.git
+    github.com/Rip-Rip/clang_complete.git
 "
 
 [ ! -d $DIR/bundle ] && mkdir $DIR/bundle
