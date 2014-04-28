@@ -29,6 +29,8 @@ let g:localvimrc_sandbox=0
 
 " ctags
 nnoremap <silent> <F6> :TlistToggle<CR>
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
