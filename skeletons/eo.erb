@@ -1,0 +1,51 @@
+classs <%= @class_name %>(Eo_Base)
+{
+   legacy_prefix: null;
+   eo_prefix: <%= @class_name.downcase %>;
+   data: <%= @class_name+"_Protected_Data" %>;
+   properties {
+      attribute
+         set {
+            /*@
+            @brief Blah blah blîh, blah blah . */
+         }
+         get {
+            /*@
+            @brief blob.
+
+            Values @c blob.
+
+            Example:
+            @dontinclude <%= @class_name.downcase %>-example.c
+            @skip <%= @class_name.downcase %>_attribute_set
+            @until return
+
+            @see something */
+         }
+         values {
+            Eina_Bool value; /*@ The attribute itself. */
+         }
+      }
+   }
+   methods {
+      part_table_clear {
+         /*@
+         @brief Does something.
+
+         @return @c EINA_TRUE on suceess, @c EINA_FALSE on failure
+
+         this realy does something, believe me. */
+
+         return Eina_Bool;
+         params {
+            @in const char *part; /*@ The part name */
+            @in Eina_Bool maybe; /*@ If set, it will maybe do something else */
+         }
+      }
+   }
+   implements {
+      Eo_Base::constructor;
+      Eo_Base::destructor;
+      Eo_Base::dbg_info_get;
+   }
+}
