@@ -24,14 +24,14 @@ exit if skeleton.nil?
 @website = ENV['WEBSITE'] || 'http://john.doe.org'
 @now = Date.today.strftime("%d/%m/%y")
 @year = Date.today.strftime("%Y")
-@license_file = ENV['LICENSE']
+@license_file = ENV['LICENSE'] || nil
 @filename = filename
 @filename_base = filename.split('.')[0]
 @class_name = filename.split('.')[0].capitalize
 @project = File.split( File.dirname( filepath ) ).last
 
 def license comment=nil
-    return unless File.exist? @license_file
+    return unless @license_file and File.exist? @license_file
     return File.new( @license_file ).read if comment.nil?
     license = ''
     File.new( @license_file ).each_line { |l| license+=comment+l }
