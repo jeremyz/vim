@@ -68,6 +68,10 @@ nmap <leader>l :set list!<CR>
 " remap vim-comentary : nmap \\  <Plug>Commentary
 map <C-c> \\\
 
+" jump to definition, <C-t> to jump back to the call
+nmap <C-y> g<C-]>
+inoremap <C-x> <C-X><C-]>
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
