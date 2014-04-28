@@ -25,7 +25,7 @@ match ExtraWhitespace /\t\|\s\+$/
 
 " local vimrc
 let g:localvimrc_ask=0
-"let g:localvimrc_sandbox=0
+let g:localvimrc_sandbox=0
 
 " ctags
 nnoremap <silent> <F6> :TlistToggle<CR>
