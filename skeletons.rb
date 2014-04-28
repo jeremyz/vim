@@ -10,11 +10,12 @@ EXTENSION  = "erb"
 
 filepath, filetype = ARGV
 filename = File.basename( filepath )
+extension = File.extname( filename ).split( '.' )[1]
 
 if filename =~ /\.h$/ then filetype='c_header'; end # otherwise filetype is cpp
-if filetype.nil? then filetype = File.extname( filename ).split( '.' )[1] ; end
+if filetype.nil? then filetype = extension; end
 
-skeleton  = [ filename, filetype ].map { |s| File.join( SKELETON_DIR, "#{s}.#{EXTENSION}" ) }.find { |s| File.exist?(s) && File.readable?(s) }
+skeleton  = [ filename, extension, filetype ].map { |s| File.join( SKELETON_DIR, "#{s}.#{EXTENSION}" ) }.find { |s| File.exist?(s) && File.readable?(s) }
 
 exit if skeleton.nil?
 
