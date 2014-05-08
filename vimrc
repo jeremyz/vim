@@ -77,9 +77,6 @@ inoremap <C-x> <C-X><C-]>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-" to jump to a definition, <C-t> to jump back to the caller code
-map <C-v> g<C-]>
-
 " code completion
 inoremap <C-d> <C-X><C-]>
 
