@@ -5,7 +5,7 @@ pushd $HOME >/dev/null
 rm .vim*
 ln -sf $DIR .vim
 ln -sf $DIR/vimrc .vimrc
-popd $HOME >/dev/null
+popd >/dev/null
 
 [ ! -d $DIR/autoload ] && mkdir $DIR/autoload
 echo "update pathogen" && curl -# -o $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
@@ -30,6 +30,7 @@ GIT_URLS="
     github.com/embear/vim-localvimrc.git
     github.com/vim-scripts/javacomplete.git
     github.com/Rip-Rip/clang_complete.git
+    github.com/abudden/taghighlight-automirror.git
 "
 
 [ ! -d $DIR/bundle ] && mkdir $DIR/bundle
