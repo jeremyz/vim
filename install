@@ -7,40 +7,5 @@ ln -sf $DIR .vim
 ln -sf $DIR/vimrc .vimrc
 popd >/dev/null
 
-[ ! -d $DIR/autoload ] && mkdir $DIR/autoload
-echo "update pathogen" && curl -# -o $DIR/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-PROTO=git
-# github.com/Townk/vim-autoclose.git
-# github.com/vim-scripts/Vim-JDE.git
-GIT_URLS="
-    github.com/scrooloose/nerdtree.git
-    github.com/msanders/snipmate.vim.git
-    github.com/vim-scripts/taglist.vim.git
-    github.com/tpope/vim-commentary.git
-    github.com/jwhitley/vim-matchit.git
-    github.com/tpope/vim-repeat.git
-    github.com/tpope/vim-surround.git
-    github.com/tpope/vim-git.git
-    github.com/tpope/vim-fugitive.git
-    github.com/tpope/vim-haml.git
-    github.com/tpope/vim-markdown.git
-    github.com/majutsushi/tagbar
-    github.com/altercation/vim-colors-solarized.git
-    github.com/embear/vim-localvimrc.git
-    github.com/vim-scripts/javacomplete.git
-    github.com/Rip-Rip/clang_complete.git
-    github.com/abudden/taghighlight-automirror.git
-"
-
-[ ! -d $DIR/bundle ] && mkdir $DIR/bundle
-cd $DIR/bundle
-for url in $GIT_URLS; do
-    gitdir=${url##*/}
-    dir=${gitdir%.git}
-    if [ -d  "$dir/.git" ]; then
-        cd $dir && echo "update $dir" && git pull; cd ..
-    else
-        git clone "$PROTO://$url"
-    fi
-done
