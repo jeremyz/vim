@@ -52,6 +52,35 @@ call togglebg#map("<F5>")
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\t\|\s\+$/
 
+if has("vms")
+  set nobackupss    " do not keep a backup file, use versions instead
+else
+  set backup        " keep a backup file
+endif
+"set spell
+set autoindent      " use autoindent"
+set nocompatible    " do not try to act like vi
+set scrolloff=5     " number of context lines above and below the cursor
+set laststatus=2    " alway add status line
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set number          " show line number
+set showmode        " show current mode
+
+" files
+set ff=unix
+set nofsync
+filetype off        " required by vundle
+
+" set list
+" set cursorline
+" set cursorcolumn
+set foldmethod=marker
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+
 " local vimrc
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
@@ -63,35 +92,6 @@ let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
-
-" files
-set ff=unix
-set nofsync
-:filetype on
-
-" set list
-" set cursorline
-" set cursorcolumn
-set foldmethod=marker
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-
-"set spell
-if has("vms")
-  set nobackupss    " do not keep a backup file, use versions instead
-else
-  set backup        " keep a backup file
-endif
-set autoindent      " use autoindent"
-set nocompatible    " do not try to act like vi
-set scrolloff=5     " number of context lines above and below the cursor
-set laststatus=2    " alway add status line
-set history=50      " keep 50 lines of command line history
-set ruler           " show the cursor position all the time
-set showcmd         " display incomplete commands
-set incsearch       " do incremental searching
-set number          " show line number
-set showmode        " show current mode
 
 " toggle view invisible with \t
 nmap <leader>l :set list!<CR>
