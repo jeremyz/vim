@@ -1,6 +1,35 @@
 " vimrc
 
-call pathogen#infect()
+
+" vundle
+set nocompatible        " be iMproved, required
+filetype off            " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'abudden/taghighlight-automirror'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'embear/vim-localvimrc'
+Bundle 'jwhitley/vim-matchit'
+Bundle 'majutsushi/tagbar'
+Bundle 'msanders/snipmate.vim'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/javacomplete'
+Bundle 'vim-scripts/taglist.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " color scheme
 " set t_Co=256
