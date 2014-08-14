@@ -5,6 +5,7 @@ pushd $HOME >/dev/null
 rm .vim*
 ln -sf $DIR .vim
 ln -sf $DIR/vimrc .vimrc
+ln -sf $DIR/vimperatorrc .vimperatorrc
 popd >/dev/null
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
