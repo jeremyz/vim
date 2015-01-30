@@ -94,6 +94,7 @@ let g:localvimrc_sandbox=0
 
 " ctags
 nnoremap <silent> <F6> :TlistToggle<CR>
+set tags+=./.tags;/
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
