@@ -117,7 +117,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 
 " <C-r> jump to definition, <C-t> to jump back to the call
 nmap <C-r> g<C-]>
-inoremap <C-x> <C-X><C-]>
 
 " code completion
 inoremap <C-d> <C-X><C-]>
