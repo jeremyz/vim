@@ -103,14 +103,14 @@ map <C-c> \\\
 nmap <C-r> g<C-]>
 inoremap <C-x> <C-X><C-]>
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
 " code completion
 inoremap <C-d> <C-X><C-]>
 
-" Make p in Visual mode replace the selected text with the "" register.
-vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc>
+" replace current selection with content of "" buffer
+vmap p "_dP
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -162,21 +162,6 @@ if has("autocmd")
   autocmd BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 
 endif " has("autocmd")
-
-function! Preserve(command)
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-    endfunction
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
-nmap _= :call Preserve("normal gg=G")<CR>
-" autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
 source ~/.vim/scripts/bepo-layout.vim
 
