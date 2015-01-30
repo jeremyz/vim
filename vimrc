@@ -100,11 +100,19 @@ let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
 
-" toggle view invisible with \t
-nmap <leader>l :set list!<CR>
+" CtrlP
+nmap <leader>e :CtrlP<cr>
+nmap <leader>ep :CtrlPBuffer<cr>
+nmap <leader>em :CtrlPMixed<cr>
 
-" remap vim-comentary : nmap \\  <Plug>Commentary
-map <C-c> \\\
+" buffers : hidden -> can leave modified buffers hidden
+set hidden
+nmap <leader>l :ls<CR>
+nmap <leader>N :enew<cr>
+nmap <leader>n :bnext<CR>
+nmap <leader>p :bprevious<CR>
+" close and goto next
+nmap <leader>bq :bp <BAR> bd #<CR>
 
 " <C-r> jump to definition, <C-t> to jump back to the call
 nmap <C-r> g<C-]>
@@ -112,6 +120,12 @@ inoremap <C-x> <C-X><C-]>
 
 " code completion
 inoremap <C-d> <C-X><C-]>
+
+" \t : toggle view invisible
+nmap <leader>l :set list!<CR>
+
+" remap vim-commentary : nmap \\  <Plug>Commentary
+map <C-c> \\\
 
 " replace current selection with content of "" buffer
 vmap p "_dP
