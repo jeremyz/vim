@@ -83,7 +83,12 @@ set foldmethod=marker
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
-" local vimrc
+" vim-airline
+let g:airline_theme='luna'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" localvimrc
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
 
