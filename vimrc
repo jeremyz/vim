@@ -27,6 +27,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
