@@ -5,6 +5,7 @@ pushd $HOME >/dev/null
 rm .vim*
 ln -sf $DIR .vim
 ln -sf $DIR/vimrc .vimrc
+ln -sf $DIR/vimrc .nvimrc
 ln -sf $DIR/vimperatorrc .vimperatorrc
 popd >/dev/null
 
