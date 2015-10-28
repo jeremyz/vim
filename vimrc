@@ -29,6 +29,7 @@ Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
+Bundle 'd11wtq/ctrlp_bdelete.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -70,6 +71,7 @@ set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 set number          " show line number
 set showmode        " show current mode
+set colorcolumn=80  " add vertical bar
 
 " files
 set ff=unix
@@ -105,6 +107,10 @@ let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
 nmap <leader>e :CtrlP<cr>
 nmap <leader>ep :CtrlPBuffer<cr>
 nmap <leader>em :CtrlPMixed<cr>
+call ctrlp_bdelete#init()
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
 " buffers : hidden -> can leave modified buffers hidden
 set hidden
