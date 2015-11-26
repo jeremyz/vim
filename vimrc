@@ -5,6 +5,8 @@
 set nocompatible        " be iMproved, required
 filetype off            " required
 
+set mouse-=a            " disable automatic visual mode using mouse
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
