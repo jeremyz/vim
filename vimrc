@@ -50,7 +50,7 @@ if !empty($DISPLAY)
   colorscheme solarized
   set listchars=tab:▸\ ,eol:¬
 else
-  colorscheme adobe
+  colorscheme solarized
 endif
 
 call togglebg#map("<F5>")
@@ -91,7 +91,7 @@ set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
 " vim-airline
-let g:airline_theme='luna'
+let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
