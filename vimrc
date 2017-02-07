@@ -19,6 +19,7 @@ Plugin 'tpope/vim-commentary'               " gc[N][motion]
 Plugin 'tpope/vim-surround'                 " cs'<q>
 Plugin 'tpope/vim-fugitive'                 " Gstatus Gdiff Gwrite (Git add %)
 Plugin 'tpope/vim-repeat'                   " allows '.' to work with plugins
+Plugin 'gnupg.vim'
 Plugin 'majutsushi/tagbar'
 " Plugin 'vim-scripts/taglist.vim'
 Plugin 'scrooloose/nerdtree'
