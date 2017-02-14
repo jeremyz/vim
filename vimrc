@@ -46,7 +46,7 @@ set backup              " keep a backup file
 set autoindent          " use autoindent"
 set nocompatible        " do not try to act like vi
 set cursorline          " show cursor line
-set cursorcolumn        " show curser column
+" set cursorcolumn        " show curser column
 set scrolloff=5         " number of context lines above and below the cursor
 set laststatus=2        " alway add status line
 set history=50          " keep 50 lines of command line history
@@ -84,13 +84,14 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " NonText, SpecialKey, ExtraWhitespace, ExtraOver ----------------------------
 nmap <leader>l :set list!<CR>
-set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,eol:↲,nbsp:␣
+" set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,eol:↲,nbsp:␣
+set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:␣
 hi NonText ctermfg=16 guifg=#4a4a59
 "hi SpecialKey ctermfg=16 guifg=#4a4a59
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "match ExtraWhitespace /\t\|\s\+$/
-highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
-match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
+" highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
+" match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
 
 
 " CtrlP ----------------------------------------------------------------------
