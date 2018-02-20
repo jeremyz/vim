@@ -32,6 +32,10 @@ Plugin 'scrooloose/nerdtree'
 " Plugin 'tpope/vim-haml'
 " Plugin 'tpope/vim-markdown'
 " Plugin 'vim-scripts/javacomplete'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,8 +68,6 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 " <C-r> jump to definition, <C-t> to jump back to the call
 set tags+=./.tags;/
 nmap <C-r> g<C-]>
-" auto completion
-inoremap <C-d> <C-X><C-]>
 
 
 " Theme ----------------------------------------------------------------------
@@ -99,6 +101,13 @@ nmap <leader>e :CtrlP<cr>
 nmap <leader>ep :CtrlPBuffer<cr>
 nmap <leader>em :CtrlPMixed<cr>
 
+" Autocomplete
+let g:deoplete#enable_at_startup = 1
+" let g:neosnippet#disable_runtime_snippets
+" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " localvimrc -----------------------------------------------------------------
 let g:localvimrc_ask=0
@@ -133,18 +142,6 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-  autocmd FileType c setlocal omnifunc=ccomplete#Completeset
-  autocmd Filetype java setlocal complete=.,w,b,u,t,i
-  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-  autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
