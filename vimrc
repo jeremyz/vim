@@ -35,6 +35,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'calviken/vim-gdscript3'
 
 
 call vundle#end()            " required
