@@ -94,8 +94,9 @@ nmap <leader>l :set list!<CR>
 set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:␣
 hi NonText ctermfg=16 guifg=#4a4a59
 "hi SpecialKey ctermfg=16 guifg=#4a4a59
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"match ExtraWhitespace /\t\|\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red ctermfg=black guifg=black
+match ExtraWhitespace /\s\+$/
+" match ExtraWhitespace /\t\|\s\+$/
 " highlight ExtraOver ctermbg=red ctermfg=white guibg=#59292
 " match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
 
