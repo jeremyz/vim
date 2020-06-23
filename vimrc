@@ -87,7 +87,6 @@ hi CursorLineNr ctermbg=red
 hi CursorLine ctermbg=0 ctermfg=None
 hi ColorColumn ctermbg=7 ctermfg=None
 
-
 " NonText, SpecialKey, ExtraWhitespace, ExtraOver ----------------------------
 nmap <leader>l :set list!<CR>
 " set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,eol:↲,nbsp:␣
@@ -101,9 +100,25 @@ match ExtraWhitespace /\s\+$/
 " match ExtraOver /\s\+\%#\@<!$\|\%81v.*/
 
 
+" set leader to ',' ----------------------------------------------------------
+let mapleader = ","
+let g:mapleader = ","
+
+
+" Delete default to black hole register --------------------------------------
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+
+vnoremap <leader>d ""d
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+
+
 " CtrlP ----------------------------------------------------------------------
 nmap <leader>e :CtrlP<cr>
-nmap <leader>ep :CtrlPBuffer<cr>
+nmap <leader>ee :CtrlPBuffer<cr>
 nmap <leader>em :CtrlPMixed<cr>
 
 " Autocomplete
