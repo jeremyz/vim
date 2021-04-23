@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'                  " Status/Tab line
+Plugin 'vim-airline/vim-airline'                  " Status/Tab line
 Plugin 'vim-airline/vim-airline-themes'     " Status/Tab line Themes
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'embear/vim-localvimrc'              " .lvimrc
