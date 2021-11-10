@@ -20,9 +20,9 @@ Plugin 'tpope/vim-surround'                 " cs'<q>
 Plugin 'tpope/vim-fugitive'                 " Gstatus Gdiff Gwrite (Git add %)
 Plugin 'tpope/vim-repeat'                   " allows '.' to work with plugins
 Plugin 'gnupg.vim'
-Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'                  " F2
 " Plugin 'vim-scripts/taglist.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'                " F3
 " Plugin 'abudden/taghighlight-automirror'
 " Plugin 'jwhitley/vim-matchit'
 " Plugin 'msanders/snipmate.vim'
@@ -33,10 +33,9 @@ Plugin 'scrooloose/nerdtree'
 " Plugin 'tpope/vim-markdown'
 " Plugin 'vim-scripts/javacomplete'
 Plugin 'Shougo/deoplete.nvim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'calviken/vim-gdscript3'
-
+" Plugin 'Shougo/neosnippet'
+" Plugin 'Shougo/neosnippet-snippets'
+Plugin 'habamax/vim-godot'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -133,6 +132,15 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
 
+" godot -------------------------------------------------------------------
+func! GodotSettings() abort
+    " setlocal foldmethod=expr
+    setlocal tabstop=4
+    nnoremap <buffer> <F4> :GodotRunLast<CR>
+    nnoremap <buffer> <F5> :GodotRun<CR>
+    nnoremap <buffer> <F6> :GodotRunCurrent<CR>
+    nnoremap <buffer> <F7> :GodotRunFZF<CR>
+endfunc
 
 " tagbar / taglist -----------------------------------------------------------
 nmap <F2> :TagbarToggle<CR>
@@ -164,17 +172,14 @@ if has("autocmd")
     \ endif
 
   " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType gdscript call GodotSettings()
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
- " Customisations based on house-style (arbitrary)
+ " Personal taste
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
-
-  " Treat .rss files as XML
-  autocmd BufNewFile,BufRead *.rss setfiletype xml
-  autocmd BufNewFile * :exe("0r! ~/.vim/skeletons.rb %:p " . &filetype)
 
 endif " has("autocmd")
 
