@@ -32,6 +32,11 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.cmd([[
+  let g:localvimrc_ask=0
+  let g:localvimrc_sandbox=0
+]])
+
 -- UTF8 à tester
 -- command! -nargs=* UTF8 call EncodeUTF8(<f-args>)
 -- fun! EncodeUTF8(...)
