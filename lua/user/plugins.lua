@@ -55,7 +55,7 @@ return packer.startup(function(use)
   -- use 'vim-airline/vim-airline-themes'  -- Status/Tab line Themes
   use 'feline-nvim/feline.nvim'
   use 'embear/vim-localvimrc'           -- support .lvimrc
-  use 'jamessan/vim-gnupg'              -- support gpg
+  use 'jamessan/vim-gnupg'              -- support .gpg .pgp .asc
 
   -- Colorschemes
   -- use 'lunarvim/colorschemes'    -- A bunch of colorschemes you can try out
