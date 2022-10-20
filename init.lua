@@ -15,6 +15,7 @@ require 'user.bufferline'
 
 require('feline').setup({preset = 'noicon'})
 
+vim.cmd([[set mouse=]])
 -- When editing a file, always jump to the last known cursor position.
 -- Don't do it when the position is invalid or when inside an event handler
 -- (happens when dropping a file on gvim).
