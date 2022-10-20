@@ -78,11 +78,13 @@ return packer.startup(function(use)
   use 'rafamadriz/friendly-snippets'    -- a bunch of snippets to use
 
   -- LSP
-  use 'neovim/nvim-lspconfig'           -- enable LSP
-  use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
-  use 'tamago324/nlsp-settings.nvim'    -- language server settings defined in json for
-  use 'jose-elias-alvarez/null-ls.nvim' -- for formatters and linters
-  use 'dense-analysis/ale'              -- asynchronous lint engine
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',              -- enable LSP
+    'mfussenegger/nvim-dap',
+    'jose-elias-alvarez/null-ls.nvim'     -- for formatters and linters
+  }
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'   -- highly extendable fuzzy finder
