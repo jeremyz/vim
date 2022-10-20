@@ -12,7 +12,6 @@ require 'user.autopairs'
 require 'user.gitsigns'
 require 'user.nvim-tree'
 require 'user.bufferline'
-require 'user.gpg'
 
 require('feline').setup({preset = 'noicon'})
 
