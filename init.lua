@@ -12,6 +12,7 @@ vim.cmd[[
     \ endif
 ]]
 
+-- add debounce timer to cmp
 vim.cmd([[
   augroup CmpDebounceAuGroup
     au!

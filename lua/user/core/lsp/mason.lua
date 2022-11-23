@@ -46,14 +46,14 @@ mason_lspconfig.setup({
 mason_lspconfig.setup_handlers({
   function(server_name)
     local opts = {
-      on_attach = require("user.lsp.handlers").on_attach,
-      capabilities = require("user.lsp.handlers").capabilities,
+      on_attach = require("user.core.lsp.handlers").on_attach,
+      capabilities = require("user.core.lsp.handlers").capabilities,
       falgs = {
         debounce_text_changes = 5000,
       },
     }
 
-    local require_ok, server = pcall(require, "user.lsp.settings." .. server_name)
+    local require_ok, server = pcall(require, "user.core.lsp.settings." .. server_name)
     if require_ok then
       opts = vim.tbl_deep_extend("force", server, opts)
     end
