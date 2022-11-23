@@ -1,18 +1,4 @@
-require 'user.options'
-require 'user.bepo'
-require 'user.keymaps'
-require 'user.plugins'
-require 'user.colorscheme'
-require 'user.cmp'
-require 'user.lsp'
-require 'user.comment'
-require 'user.telescope'
-require 'user.treesitter'
-require 'user.autopairs'
-require 'user.gitsigns'
-require 'user.nvim-tree'
-require 'user.bufferline'
-
+require 'user'
 require('feline').setup({preset = 'noicon'})
 
 vim.cmd([[set mouse=]])
