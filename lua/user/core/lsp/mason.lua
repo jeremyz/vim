@@ -25,7 +25,6 @@ local servers = {
   "ltex",
   "rust_analyzer",
   "solargraph",
-  "sumneko_lua",
 }
 
 mason.setup({
