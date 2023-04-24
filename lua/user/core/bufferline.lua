@@ -76,95 +76,25 @@ bufferline.setup {
     -- end
   },
   highlights = {
-    fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    background = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    buffer_selected = {
-      fg = {attribute='fg',highlight='#ff0000'},
-      bg = "#707070", --{attribute='bg',highlight='#0000ff'},
-      },
-    buffer_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    close_button = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    close_button_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    -- close_button_selected = {
-    --   fg = {attribute='fg',highlight='TabLineSel'},
-    --   bg ={attribute='bg',highlight='TabLineSel'}
-    --   },
-
-    tab_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
-    tab = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    tab_close = {
-      -- fg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
-
-    duplicate_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" },
-      italic = true,
-    },
-    duplicate_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
-    },
-    duplicate = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
-    },
-
-    modified = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    modified_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
-    modified_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    separator = {
-      fg = { attribute = "bg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    separator_selected = {
-      fg = { attribute = "bg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
-    -- separator_visible = {
-    --   fg = {attribute='bg',highlight='TabLine'},
-    --   bg = {attribute='bg',highlight='TabLine'}
-    --   },
-    indicator_selected = {
-      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      bg = { attribute = "bg", highlight = "Normal" },
-    },
+    fill = { fg = "#000000", bg = '#909090'},
+    buffer_selected = { fg = '#ffffff', bg = '#007070'},
+    --close_button = { fg = '#0000f0', bg = '#007070'},
+    --separator = { fg = "#000000", bg = '#00000'},
+    -- separator_selected = { fg = "#000000", bg = '#000000'},
+    -- separator_visible = { fg = "#000000", bg = '#000000'},
+    -- indicator_selected = { fg = "#000000", bg = '#000000'},
+    -- background = { fg = "#000000", bg = '#000000'},
+    -- buffer_visible = { fg = "#000000", bg = '#000000'},
+    -- close_button_visible = { fg = "#000000", bg = '#000000'},
+    -- close_button_selected = { fg = "#000000", bg = '#000000'},
+    -- tab_selected = { fg = "#000000", bg = '#000000'},
+    -- tab = { fg = "#000000", bg = '#000000'},
+    -- tab_close = { fg = "#000000", bg = '#000000'},
+    -- duplicate = { fg = "#000000", bg = '#000000'},
+    -- duplicate_selected = { fg = "#000000", bg = '#000000'},
+    -- duplicate_visible = { fg = "#000000", bg = '#000000'},
+    -- modified = { fg = "#000000", bg = '#000000'},
+    -- modified_selected = { fg = "#000000", bg = '#000000'},
+    -- modified_visible = { fg = "#000000", bg = '#000000'},
   },
 }
