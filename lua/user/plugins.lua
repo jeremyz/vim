@@ -51,8 +51,6 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'    -- nices icons
   use 'kyazdani42/nvim-tree.lua'        -- tree explorer
   use 'akinsho/bufferline.nvim'         -- buffer status line
-  -- use 'vim-airline/vim-airline'         -- Status/Tab line
-  -- use 'vim-airline/vim-airline-themes'  -- Status/Tab line Themes
   use 'feline-nvim/feline.nvim'
   use 'embear/vim-localvimrc'           -- support .lvimrc
   use 'jamessan/vim-gnupg'              -- support .gpg .pgp .asc
