@@ -1,5 +1,8 @@
 #! /bin/bash
 
-D=~/.config/nvim
-rm -fr "$D" 2>/dev/null
-mkdir "$D" && cd "$D" && ln -s ~/usr/git/vim/init.lua && ln -s ~/usr/git/vim/lua
+CFG_D=~/.config/nvim
+LOCAL_D=~/.local/share/nvim/
+
+rm -fr "$LOCAL_D"
+rm -fr "$CFG_D"
+mkdir "$CFG_D" && cd "$CFG_D" && ln -s ~/usr/git/vim/init.lua && ln -s ~/usr/git/vim/lua
