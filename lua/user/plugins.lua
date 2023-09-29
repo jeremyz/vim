@@ -81,7 +81,6 @@ return packer.startup(function(use)
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',              -- enable LSP
     'mfussenegger/nvim-dap',
-    'jose-elias-alvarez/null-ls.nvim'     -- for formatters and linters
   }
 
   -- Telescope
